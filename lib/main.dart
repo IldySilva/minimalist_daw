@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mini_digital_audio_workstation/models/button_model.dart';
+import 'package:mini_digital_audio_workstation/models/button_modle.dart';
 void main() {
   runApp( MyApp());
 }
@@ -19,24 +19,30 @@ class MyApp extends StatelessWidget {
           child: Scaffold(
             body: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GridView.builder(
-                itemCount: buttons.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-                itemBuilder: (BuildContext context, int index) {
-                  var btn=buttons[index];
-                 return  Card(
-                    child: InkWell(
-                      onTap: () {
-                        btn.play();
+              child: Column(
+                children: [
+                  const Text("M i n i  DAW",style: TextStyle(fontSize: 40,color: Colors.grey),),
+                  GridView.builder(
+                    shrinkWrap: true,
+                    itemCount: buttons.length,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,childAspectRatio: 1.3),
+                    itemBuilder: (BuildContext context, int index) {
+                      var btn=buttons[index];
+                     return  Card(
+                        child: InkWell(
+                          onTap: () {
+                            btn.play();
 
-                      },
-                      child: Center(child: Text(btn.name)),
-                    ),
-                  );
-                },
+                          },
+                          child: Center(child: Text(btn.name)),
+                        ),
+                      );
+                    },
 
 
 
+                  ),
+                ],
               ),
             ),
           ),

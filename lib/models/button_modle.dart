@@ -1,16 +1,14 @@
-        import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audioplayers.dart';
+
 class ButtonModel {
   String name;
   String urlAsset;
 
-  ButtonModel({required this.name, required this.urlAsset}) {
-    player.setSourceAsset(urlAsset);
-  }
+  ButtonModel({required this.name, required this.urlAsset});
   var player = AudioPlayer();
 
   Future<void> play() async {
     await player.play(AssetSource(urlAsset));
-    
   }
 }
 
